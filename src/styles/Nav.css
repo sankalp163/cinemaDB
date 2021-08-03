@@ -1,0 +1,60 @@
+.nav {
+  position: fixed;
+  top: 0;
+  padding: 20px;
+  width: 100%;
+  height: 30px;
+  z-index: 1;
+
+  /* Animations */
+  transition: all 0.5s;
+  transition-timing-function: ease-in;
+}
+.nav_black {
+  background-color: #111;
+}
+
+.nav_contents {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav_logo {
+  position: fixed;
+  top: 25px;
+  left: 0px;
+  width: 80px;
+  object-fit: contain;
+  padding-left: 20px;
+  cursor: pointer;
+}
+
+.nav_tabs {
+  margin-top: 10px;
+  margin-left: 50px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+
+  /* Animation */
+  transition: all 0.5s;
+  transition-timing-function: ease-in;
+}
+.nav_tabs_disappear {
+  display: none;
+}
+.nav_tab {
+  cursor: pointer;
+  margin-left: 20px;
+  font-size: 0.65rem;
+  display: block;
+  list-style: none;
+  color: #fff;
+}
+
+.nav_avatar {
+  position: fixed;
+  right: 20px;
+  width: 30px;
+  cursor: pointer;
+}
