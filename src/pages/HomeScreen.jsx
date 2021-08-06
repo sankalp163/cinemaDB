@@ -2,6 +2,7 @@ import React from "react";
 import Nav from "../components/Nav";
 import Banner from "../components/Banner";
 import Row from "../components/Row";
+import Footer from "../components/Footer";
 import requests from "../Requests";
 
 const HomeScreen = () => {
@@ -24,6 +25,8 @@ const HomeScreen = () => {
       <Row title="Horror Movies" fetchUrl={requests.fetchHorrorMovies} />
       <Row title="Romance Movies" fetchUrl={requests.fetchRomanceMovies} />
       <Row title="Documentaries" fetchUrl={requests.fetchDocumentaries} />
+
+      <Footer />
     </div>
   );
 };

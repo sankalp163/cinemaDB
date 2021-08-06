@@ -1,12 +1,13 @@
-@import './styles/HomeScreen.css';
-@import './styles/Nav.css';
-@import './styles/Banner.css';
-@import './styles/Row.css';
-@import './styles/RowItem.css';
+@import "./styles/HomeScreen.css";
+@import "./styles/Nav.css";
+@import "./styles/Banner.css";
+@import "./styles/Row.css";
+@import "./styles/RowItem.css";
+@import "./styles/Footer.css";
+@import "./styles/Login.css";
+@import "./styles/SignUpScreen.css";
 
 .app {
-    background-color: #111;
-    overflow-x: hidden;
+  background-color: #111;
+  overflow-x: hidden;
 }
-
-

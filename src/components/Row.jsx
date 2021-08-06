@@ -9,18 +9,17 @@ const Row = ({ title, fetchUrl, isLargeRow = false }) => {
   const [slideNumber, setSlideNumber] = useState(0);
   const posterRef = useRef();
 
-  const handleClick = (direction, length) => {
+  // Handling the row slider
+  const handleClick = (direction) => {
     let distance = posterRef.current.getBoundingClientRect().x - 50;
-    console.log(distance);
+    // console.log(distance);
     if (direction === "left" && slideNumber > 0) {
-      setSlideNumber(slideNumber - 5);
-      posterRef.current.style.transform = `translateX(${6 * 230 + distance}px)`;
+      setSlideNumber(slideNumber - 1);
+      posterRef.current.style.transform = `translateX(${230 + distance}px)`;
     }
-    if (direction === "right" && slideNumber < length - 6) {
-      setSlideNumber(slideNumber + 5);
-      posterRef.current.style.transform = `translateX(${
-        6 * -230 + distance
-      }px)`;
+    if (direction === "right" && slideNumber < 14) {
+      setSlideNumber(slideNumber + 1);
+      posterRef.current.style.transform = `translateX(${-230 + distance}px)`;
     }
   };
 
@@ -34,7 +33,7 @@ const Row = ({ title, fetchUrl, isLargeRow = false }) => {
     fetchData();
   }, []);
 
-  console.log(movies);
+  // console.log(movies);
 
   return (
     <div className="row">
@@ -42,7 +41,7 @@ const Row = ({ title, fetchUrl, isLargeRow = false }) => {
       <div className="wrapper">
         <ArrowBackIosIcon
           className="arrow left"
-          onClick={() => handleClick("left", movies.length)}
+          onClick={() => handleClick("left")}
           style={{ display: slideNumber == 0 && "none" }}
         />
         <div className="row_posters" ref={posterRef}>
@@ -50,13 +49,13 @@ const Row = ({ title, fetchUrl, isLargeRow = false }) => {
             (movie, index) =>
               ((isLargeRow && movie.poster_path) ||
                 (!isLargeRow && movie.backdrop_path)) && (
-                <RowItem movie={movie} isLargeRow index={index} />
+                <RowItem movie={movie} index={index} />
               )
           )}
         </div>
         <ArrowForwardIosIcon
           className="arrow right"
-          onClick={() => handleClick("right", movies.length)}
+          onClick={() => handleClick("right")}
           style={{ display: slideNumber == movies.length - 6 && "none" }}
         />
       </div>
