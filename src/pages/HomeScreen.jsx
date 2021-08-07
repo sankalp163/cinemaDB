@@ -14,17 +14,18 @@ const HomeScreen = () => {
 
       <Row
         title="NETFLIX ORIGINALS"
+        id="0"
         fetchUrl={requests.fetchNetflixOriginals}
         isLargeRow
       />
 
-      <Row title="Trending Now" fetchUrl={requests.fetchTrending} />
-      <Row title="Action Movies" fetchUrl={requests.fetchActionMovies} />
-      <Row title="Top Rated" fetchUrl={requests.fetchTopRated} />
-      <Row title="Comedy Movies" fetchUrl={requests.fetchComedyMovies} />
-      <Row title="Horror Movies" fetchUrl={requests.fetchHorrorMovies} />
-      <Row title="Romance Movies" fetchUrl={requests.fetchRomanceMovies} />
-      <Row title="Documentaries" fetchUrl={requests.fetchDocumentaries} />
+      <Row title="Trending Now" id="1" fetchUrl={requests.fetchTrending} />
+      <Row title="Action Movies" id="2" fetchUrl={requests.fetchActionMovies} />
+      <Row title="Top Rated" id="3" fetchUrl={requests.fetchTopRated} />
+      <Row title="Comedy Movies" id="4" fetchUrl={requests.fetchComedyMovies} />
+      <Row title="Horror Movies" id="5" fetchUrl={requests.fetchHorrorMovies} />
+      <Row title="Romance Movies" id="6" fetchUrl={requests.fetchRomanceMovies} />
+      <Row title="Documentaries" id="7" fetchUrl={requests.fetchDocumentaries} />
 
       <Footer />
     </div>

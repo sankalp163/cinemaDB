@@ -2,25 +2,33 @@ import axios from "../axios";
 import React, { useEffect, useState, useRef } from "react";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
+import ThumbDownAltIcon from "@material-ui/icons/ThumbDownAlt";
+import PlayArrowIcon from "@material-ui/icons/PlayArrow";
+import AddIcon from "@material-ui/icons/Add";
 import RowItem from "./RowItem";
 
-const Row = ({ title, fetchUrl, isLargeRow = false }) => {
+const Row = ({ title, fetchUrl, isLargeRow = false, id }) => {
   const [movies, setMovies] = useState([]);
   const [slideNumber, setSlideNumber] = useState(0);
   const posterRef = useRef();
+  const base_url = "https://image.tmdb.org/t/p/original/";
 
   // Handling the row slider
-  const handleClick = (direction) => {
-    let distance = posterRef.current.getBoundingClientRect().x - 50;
-    // console.log(distance);
-    if (direction === "left" && slideNumber > 0) {
-      setSlideNumber(slideNumber - 1);
-      posterRef.current.style.transform = `translateX(${230 + distance}px)`;
-    }
-    if (direction === "right" && slideNumber < 14) {
-      setSlideNumber(slideNumber + 1);
-      posterRef.current.style.transform = `translateX(${-230 + distance}px)`;
-    }
+
+  const carousel = document.getElementById(id);
+
+  const MouseWheelHandler = (dist, element) => {
+    element.scrollLeft -= dist;
+  };
+  const handleClickLeft = () => {
+    setSlideNumber(slideNumber - 5);
+    MouseWheelHandler(`${isLargeRow ? 5 * 176.663 : 5 * 187.75}`, carousel);
+  };
+  const handleClickRight = () => {
+    setSlideNumber(slideNumber + 5);
+    MouseWheelHandler(`${isLargeRow ? -5 * 176.663 : -5 * 187.775}`, carousel);
   };
 
   useEffect(() => {
@@ -33,6 +41,10 @@ const Row = ({ title, fetchUrl, isLargeRow = false }) => {
     fetchData();
   }, []);
 
+  const truncate = (string, n) => {
+    return string?.length > n ? string.substr(0, n - 1) + "..." : string;
+  };
+
   // console.log(movies);
 
   return (
@@ -41,22 +53,29 @@ const Row = ({ title, fetchUrl, isLargeRow = false }) => {
       <div className="wrapper">
         <ArrowBackIosIcon
           className="arrow left"
-          onClick={() => handleClick("left")}
-          style={{ display: slideNumber == 0 && "none" }}
+          onClick={() => handleClickLeft()}
+          style={{ display: `${slideNumber <= 0 ? "none" : "block"}` }}
         />
-        <div className="row_posters" ref={posterRef}>
+        <div className="row_posters" id={id} ref={posterRef}>
           {movies.map(
             (movie, index) =>
               ((isLargeRow && movie.poster_path) ||
                 (!isLargeRow && movie.backdrop_path)) && (
-                <RowItem movie={movie} index={index} />
+                <img
+                  className={`row_poster ${isLargeRow && "row_posterLarge"}`}
+                  key={movie.id}
+                  src={`${base_url}${
+                    isLargeRow ? movie.poster_path : movie.backdrop_path
+                  }`}
+                  alt={movie.name}
+                />
               )
           )}
         </div>
         <ArrowForwardIosIcon
           className="arrow right"
-          onClick={() => handleClick("right")}
-          style={{ display: slideNumber == movies.length - 6 && "none" }}
+          onClick={() => handleClickRight()}
+          style={{ display: `${slideNumber >= 13 ? "none" : "block"}` }}
         />
       </div>
     </div>

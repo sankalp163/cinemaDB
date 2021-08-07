@@ -24,6 +24,7 @@ const Nav = () => {
       <div className="nav_contents">
         <img
           className="nav_logo"
+          onClick={() => history.push("/")}
           src="https://www.freepnglogos.com/uploads/netflix-logo-0.png"
           alt="logo"
         />

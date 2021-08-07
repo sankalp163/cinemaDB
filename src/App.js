@@ -26,13 +26,13 @@ function App() {
         );
       } else {
         //Logged Out
-        dispatch(logout);
+        dispatch(logout());
       }
     });
 
     //Cleanup
     return unsubscribe;
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="app">
