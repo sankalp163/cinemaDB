@@ -1,0 +1,36 @@
+.singleMovie-container {
+  color: white;
+}
+.singleMovie-heading {
+  text-align: center;
+}
+.singleMovie-image {
+  display: flex;
+  max-height: 400px;
+  margin: 25px auto 25px;
+  object-fit: contain;
+}
+.singleMovie-basicInfo {
+  display: flex;
+  width: 20vw;
+  margin: auto;
+  align-items: center;
+  justify-content: space-around;
+}
+.singleMovie-genres {
+  display: flex;
+  width: 20vw;
+  margin: 10px auto 10px;
+  align-items: center;
+  justify-content: space-around;
+}
+.singleMovie-genre {
+  background-color: black;
+  border-radius: 5px;
+  padding: 8px;
+}
+.singleMovie-description {
+  display: flex;
+  width: 50vw;
+  margin: 20px auto 20px;
+}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Nav from "../components/Nav";
 import Banner from "../components/Banner";
 import Row from "../components/Row";
@@ -6,6 +6,7 @@ import Footer from "../components/Footer";
 import requests from "../Requests";
 
 const HomeScreen = () => {
+  const [listItems, setListItems] = useState([]);
   return (
     <div className="homeScreen">
       <Nav />

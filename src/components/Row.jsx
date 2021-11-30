@@ -1,4 +1,5 @@
 import axios from "../axios";
+import { Link } from "react-router-dom";
 import React, { useEffect, useState, useRef } from "react";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
@@ -29,6 +30,11 @@ const Row = ({ title, fetchUrl, isLargeRow = false, id }) => {
   const handleClickRight = () => {
     setSlideNumber(slideNumber + 5);
     MouseWheelHandler(`${isLargeRow ? -5 * 176.663 : -5 * 187.775}`, carousel);
+  };
+
+  const goToMoviePage = (movieid) => {
+    const currentUrl = window.location.href;
+    window.location.href = currentUrl + `movie/${movieid}`;
   };
 
   useEffect(() => {
@@ -68,7 +74,8 @@ const Row = ({ title, fetchUrl, isLargeRow = false, id }) => {
                     isLargeRow ? movie.poster_path : movie.backdrop_path
                   }`}
                   alt={movie.name}
-                />
+                  onClick={() => goToMoviePage(movie.id)}
+                ></img>
               )
           )}
         </div>

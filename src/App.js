@@ -4,6 +4,7 @@ import "./App.css";
 import HomeScreen from "./pages/HomeScreen";
 import LoginScreen from "./pages/LoginScreen";
 import ProfileScreen from "./pages/ProfileScreen";
+import SingleMoviePage from "./pages/SingleMoviePage";
 import { auth } from "./firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { login, logout, selectUser } from "./features/userSlice";
@@ -46,6 +47,9 @@ function App() {
             </Route>
             <Route exact path="/">
               <HomeScreen />
+            </Route>
+            <Route exact path="/movie/:id">
+              <SingleMoviePage />
             </Route>
           </Switch>
         )}

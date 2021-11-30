@@ -6,6 +6,7 @@
 @import "./styles/Login.css";
 @import "./styles/SignUpScreen.css";
 @import "./styles/ProfileScreen.css";
+@import "./styles/singlemovie.css";
 
 .app {
   background-color: #111;
