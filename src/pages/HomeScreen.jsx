@@ -4,9 +4,10 @@ import Banner from "../components/Banner";
 import Row from "../components/Row";
 import Footer from "../components/Footer";
 import requests from "../Requests";
+import { useSelector } from "react-redux";
+import { getList } from "../features/userSlice";
 
 const HomeScreen = () => {
-  const [listItems, setListItems] = useState([]);
   return (
     <div className="homeScreen">
       <Nav />
@@ -25,8 +26,16 @@ const HomeScreen = () => {
       <Row title="Top Rated" id="3" fetchUrl={requests.fetchTopRated} />
       <Row title="Comedy Movies" id="4" fetchUrl={requests.fetchComedyMovies} />
       <Row title="Horror Movies" id="5" fetchUrl={requests.fetchHorrorMovies} />
-      <Row title="Romance Movies" id="6" fetchUrl={requests.fetchRomanceMovies} />
-      <Row title="Documentaries" id="7" fetchUrl={requests.fetchDocumentaries} />
+      <Row
+        title="Romance Movies"
+        id="6"
+        fetchUrl={requests.fetchRomanceMovies}
+      />
+      <Row
+        title="Documentaries"
+        id="7"
+        fetchUrl={requests.fetchDocumentaries}
+      />
 
       <Footer />
     </div>

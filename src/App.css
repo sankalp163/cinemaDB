@@ -7,6 +7,13 @@
 @import "./styles/SignUpScreen.css";
 @import "./styles/ProfileScreen.css";
 @import "./styles/singlemovie.css";
+@import "./styles/trailers.css";
+@import "./styles/RowItem.css";
+
+:root {
+  --yellow: rgb(250, 250, 61);
+  --redGradient: 70% ;
+}
 
 .app {
   background-color: #111;

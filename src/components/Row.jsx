@@ -14,7 +14,6 @@ const Row = ({ title, fetchUrl, isLargeRow = false, id }) => {
   const [movies, setMovies] = useState([]);
   const [slideNumber, setSlideNumber] = useState(0);
   const posterRef = useRef();
-  const base_url = "https://image.tmdb.org/t/p/original/";
 
   // Handling the row slider
 
@@ -24,17 +23,20 @@ const Row = ({ title, fetchUrl, isLargeRow = false, id }) => {
     element.scrollLeft -= dist;
   };
   const handleClickLeft = () => {
-    setSlideNumber(slideNumber - 5);
-    MouseWheelHandler(`${isLargeRow ? 5 * 176.663 : 5 * 187.75}`, carousel);
+    const width = window.innerWidth;
+    setSlideNumber(slideNumber - 4);
+    MouseWheelHandler(
+      `${isLargeRow ? 4 * 0.2 * width : 4.5 * 0.22 * width}`,
+      carousel
+    );
   };
   const handleClickRight = () => {
-    setSlideNumber(slideNumber + 5);
-    MouseWheelHandler(`${isLargeRow ? -5 * 176.663 : -5 * 187.775}`, carousel);
-  };
-
-  const goToMoviePage = (movieid) => {
-    const currentUrl = window.location.href;
-    window.location.href = currentUrl + `movie/${movieid}`;
+    const width = window.innerWidth;
+    setSlideNumber(slideNumber + 4);
+    MouseWheelHandler(
+      `${isLargeRow ? -4 * 0.2 * width : -4.5 * 0.2 * width}`,
+      carousel
+    );
   };
 
   useEffect(() => {
@@ -51,11 +53,10 @@ const Row = ({ title, fetchUrl, isLargeRow = false, id }) => {
     return string?.length > n ? string.substr(0, n - 1) + "..." : string;
   };
 
-  // console.log(movies);
-
   return (
     <div className="row">
       <h2 className="row-title">{title}</h2>
+      <div className="circle-end"></div>
       <div className="wrapper">
         <ArrowBackIosIcon
           className="arrow left"
@@ -67,15 +68,11 @@ const Row = ({ title, fetchUrl, isLargeRow = false, id }) => {
             (movie, index) =>
               ((isLargeRow && movie.poster_path) ||
                 (!isLargeRow && movie.backdrop_path)) && (
-                <img
-                  className={`row_poster ${isLargeRow && "row_posterLarge"}`}
-                  key={movie.id}
-                  src={`${base_url}${
-                    isLargeRow ? movie.poster_path : movie.backdrop_path
-                  }`}
-                  alt={movie.name}
-                  onClick={() => goToMoviePage(movie.id)}
-                ></img>
+                <RowItem
+                  movie={movie}
+                  isLargeRow={isLargeRow}
+                  index={movie.index}
+                />
               )
           )}
         </div>

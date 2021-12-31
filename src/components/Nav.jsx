@@ -32,7 +32,7 @@ const Nav = () => {
           <li className="nav_tab">Home</li>
           <li className="nav_tab">TV Shows</li>
           <li className="nav_tab">Movies</li>
-          <li className="nav_tab">New & Popular</li>
+          <li className="nav_tab">Search</li>
           <li className="nav_tab">My List</li>
         </ul>
         <img

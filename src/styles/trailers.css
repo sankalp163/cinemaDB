@@ -1,0 +1,16 @@
+.trailers {
+  width: 100%;
+  margin: 50px;
+}
+
+.videos-container {
+  display: flex;
+  overflow-x: scroll;
+  padding: 20px;
+  margin: 10px;
+  scroll-behavior: smooth;
+}
+
+.video-container {
+  margin: 10px;
+}
