@@ -6,7 +6,7 @@ import Nav from "../components/Nav";
 
 const ProfileScreen = () => {
   const user = useSelector(selectUser);
-
+  console.log(user);
   return (
     <div className="profileScreen">
       <Nav />

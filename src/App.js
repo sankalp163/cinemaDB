@@ -5,6 +5,7 @@ import HomeScreen from "./pages/HomeScreen";
 import LoginScreen from "./pages/LoginScreen";
 import ProfileScreen from "./pages/ProfileScreen";
 import SingleMoviePage from "./pages/SingleMoviePage";
+import MyList from "./pages/MyList";
 import { auth } from "./firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { login, logout, selectUser } from "./features/userSlice";
@@ -35,7 +36,6 @@ function App() {
     return unsubscribe;
   }, [dispatch]);
 
-
   return (
     <div className="app">
       <Router>
@@ -51,6 +51,9 @@ function App() {
             </Route>
             <Route exact path="/movie/:id">
               <SingleMoviePage />
+            </Route>
+            <Route exact path="/myList">
+              <MyList />
             </Route>
           </Switch>
         )}

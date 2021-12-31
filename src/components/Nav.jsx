@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
 const Nav = () => {
@@ -33,7 +34,9 @@ const Nav = () => {
           <li className="nav_tab">TV Shows</li>
           <li className="nav_tab">Movies</li>
           <li className="nav_tab">Search</li>
-          <li className="nav_tab">My List</li>
+          <Link to="/myList">
+            <li className="nav_tab">My List</li>
+          </Link>
         </ul>
         <img
           onClick={() => history.push("/profile")}

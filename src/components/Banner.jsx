@@ -5,6 +5,35 @@ import requests from "../Requests";
 const Banner = () => {
   const [movie, setMovie] = useState([]);
 
+  // Typewriting effect JS
+  const words = ["MOVIE SUMMARIES", "MOVIE RATINGS", "MOVIE TRAILERS"];
+  let count = 0;
+  let index = 0;
+  let currentWord = "";
+  let letter = "";
+
+  function type() {
+    if (count === words.length) {
+      count = 0;
+    }
+
+    currentWord = words[count];
+    letter = currentWord.slice(0, ++index);
+
+    let element = document.querySelector(".typing");
+    if (element) {
+      //Here condition is to ensure that our element value isn't null.
+      element.textContent = letter;
+    }
+
+    if (letter.length === currentWord.length) {
+      count++;
+      index = 0;
+    }
+
+    setTimeout(type, 200);
+  }
+
   useEffect(() => {
     async function fetchData() {
       const request = await axios.get(requests.fetchNetflixOriginals);
@@ -18,6 +47,7 @@ const Banner = () => {
     }
 
     fetchData();
+    type();
   }, []);
 
   const goToMoviePage = (movieid) => {
@@ -46,7 +76,6 @@ const Banner = () => {
             The CinemaDB
           </h1>
           {/* <div className="banner_buttons">
-            A Cinephile's 
             <button
               className="banner_button"
               onClick={() => goToMoviePage(movie.id)}
@@ -55,9 +84,14 @@ const Banner = () => {
             </button>
             <button className="banner_button">My List</button>
           </div> */}
-          <h1 className="banner_description">
-            A Cinephile's one-stop destination for
-            <ul className="dynamic-texts">
+          <div className="banner_description">
+            <div>A Cinephile's one-stop destination for</div>
+            <div className="typing" id="typing"></div>
+            {/* <div className="banner_info">
+              <span>{movie?.title || movie?.name || movie?.original_name}</span>
+              {movie?.overview}
+            </div> */}
+            {/* <ul className="dynamic-texts">
               <li>
                 <span>MOVIE SUMMARIES</span>
               </li>
@@ -68,8 +102,8 @@ const Banner = () => {
                 <span>MOVIE TRAILERS</span>
               </li>
             </ul>
-            {/* {truncate(movie?.overview, 150)} */}
-          </h1>
+            {truncate(movie?.overview, 150)} */}
+          </div>
         </div>
         <div className="banner_fadeBottom" />
       </div>

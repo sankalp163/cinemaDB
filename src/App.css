@@ -9,10 +9,11 @@
 @import "./styles/singlemovie.css";
 @import "./styles/trailers.css";
 @import "./styles/RowItem.css";
+@import "./styles/myList.css";
 
 :root {
   --yellow: rgb(250, 250, 61);
-  --redGradient: 70% ;
+  --redGradient: 70%;
 }
 
 .app {

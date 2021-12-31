@@ -1,7 +1,10 @@
 import axios from "axios";
+import firebase from "firebase";
 import React, { useState, useEffect } from "react";
+import db from "../firebase";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { selectUser } from "../features/userSlice";
 import Trailers from "../components/Trailers";
 import Nav from "../components/Nav";
 import Rating from "@mui/material/Rating";
@@ -15,10 +18,8 @@ const SingleMoviePage = () => {
   const { id } = useParams();
   const [singleMovie, setSingleMovie] = useState();
   const [videos, setVideos] = useState([]);
+  const user = useSelector(selectUser);
   const [click, setClick] = useState(false);
-  const [addClicked, setAddClicked] = useState(false);
-
-  const dispatch = useDispatch();
 
   const fetchUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=0a483415feaf1eb0f9d53ff65ec5732c&language=en-US`;
   const base_url = "https://image.tmdb.org/t/p/original/";
@@ -26,6 +27,15 @@ const SingleMoviePage = () => {
 
   // Setting background image of our singleMovie page
   const backgroundImageUrl = `https://image.tmdb.org/t/p/original${singleMovie?.backdrop_path}`;
+
+  // AddToWatchlist function
+  const addToWatchlist = (singleMovie) => {
+    const movies = db.collection("users").doc(user.uid);
+
+    movies.update({
+      movieList: firebase.firestore.FieldValue.arrayUnion(singleMovie),
+    });
+  };
 
   useEffect(() => {
     async function fetchData() {
@@ -81,9 +91,7 @@ const SingleMoviePage = () => {
               </div>
 
               <div className="right-col">
-                <h2 className="singleMovie-heading">
-                  {singleMovie?.title}
-                </h2>
+                <h2 className="singleMovie-heading">{singleMovie?.title}</h2>
                 <div className="singleMovie-basicInfo">
                   <span className="singleMovie-rating">
                     <MovieFilterIcon /> <span>{singleMovie?.vote_average}</span>
@@ -114,7 +122,7 @@ const SingleMoviePage = () => {
             </div> */}
                 <div
                   className="add-to-watchlist"
-                  onClick={() => dispatch(addToUserList(singleMovie))}
+                  onClick={() => addToWatchlist(singleMovie)}
                 >
                   <h3>Add To WatchList</h3>
                   <AddCircleOutline />

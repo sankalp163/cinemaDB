@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 import { getList } from "../features/userSlice";
 
 const HomeScreen = () => {
+  
   return (
     <div className="homeScreen">
       <Nav />

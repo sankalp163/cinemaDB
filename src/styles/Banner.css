@@ -28,13 +28,51 @@
   flex-direction: column;
   width: 30rem;
   line-height: 1.3;
-  padding: 1.5rem;
+  padding: 1rem;
   font-size: 1.5rem;
+  position: relative;
   /* max-width: 360px; */
   height: auto;
-  background: black;
 }
-.dynamic-texts {
+
+.banner_info {
+  visibility: hidden;
+  position: absolute;
+  top: 20vh;
+  font-size: 0.8rem;
+  transition: 0.6s all ease-in-out;
+}
+
+.banner:hover .banner_info {
+  font-size: 1.0rem;
+  visibility: visible;
+}
+
+.typing {
+  position: relative;
+  color: rgb(224, 5, 5);
+  font-weight: 700;
+}
+
+.typing::after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 90%;
+  border-right: 2px solid white;
+  animation: blink 0.9s infinite ease;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* .dynamic-texts {
   font-size: 1.5rem;
   line-height: 40px;
   height: 40px;
@@ -76,7 +114,7 @@
     left: 100%;
     margin: 0 -20px 0 20px;
   }
-}
+} */
 
 .banner_fadeBottom {
   height: 6.6rem;

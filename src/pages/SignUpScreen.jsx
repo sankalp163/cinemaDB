@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
-import { auth } from "../firebase";
+import db, { auth } from "../firebase";
+
 
 const SignUpScreen = () => {
   const emailRef = useRef(null);
@@ -15,6 +16,9 @@ const SignUpScreen = () => {
       )
       .then((authUser) => {
         console.log(authUser);
+        return db.collection('users').doc(authUser.user.uid).set({
+          movieList: []
+        });
       })
       .catch((error) => {
         alert(error.message);
