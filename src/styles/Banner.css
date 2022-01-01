@@ -44,7 +44,7 @@
 }
 
 .banner:hover .banner_info {
-  font-size: 1.0rem;
+  font-size: 1rem;
   visibility: visible;
 }
 
@@ -60,7 +60,7 @@
   width: 1px;
   height: 90%;
   border-right: 2px solid white;
-  animation: blink 0.9s infinite ease;
+  animation: blink 0.3s infinite ease;
 }
 
 @keyframes blink {

@@ -9,6 +9,7 @@ import Trailers from "../components/Trailers";
 import Nav from "../components/Nav";
 import Rating from "@mui/material/Rating";
 import AddCircleOutline from "@mui/icons-material/AddCircleOutline";
+import DoneOutlineIcon from "@mui/icons-material/DoneOutline";
 import MovieFilterIcon from "@mui/icons-material/MovieFilter";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import { addToUserList } from "../features/userSlice";
@@ -20,6 +21,7 @@ const SingleMoviePage = () => {
   const [videos, setVideos] = useState([]);
   const user = useSelector(selectUser);
   const [click, setClick] = useState(false);
+  const [watchlist, setWatchlist] = useState([]);
 
   const fetchUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=0a483415feaf1eb0f9d53ff65ec5732c&language=en-US`;
   const base_url = "https://image.tmdb.org/t/p/original/";
@@ -31,7 +33,7 @@ const SingleMoviePage = () => {
   // AddToWatchlist function
   const addToWatchlist = (singleMovie) => {
     const movies = db.collection("users").doc(user.uid);
-
+    setClick(true);
     movies.update({
       movieList: firebase.firestore.FieldValue.arrayUnion(singleMovie),
     });
@@ -41,16 +43,30 @@ const SingleMoviePage = () => {
     async function fetchData() {
       const request = await axios.get(fetchUrl);
       setSingleMovie(request.data);
-      console.log(request.data);
       return request;
     }
 
     async function fetchVideoData() {
       const videoRequest = await axios.get(videoUrl);
       setVideos(videoRequest.data.results);
-      console.log(videoRequest.data.results);
       return videoRequest;
     }
+
+    //getting list of movies in watchlist to keep track if current
+    db.collection("users")
+      .doc(user.uid)
+      .get()
+      .then(function (doc) {
+        if (doc.exists) {
+          console.log(doc.data());
+          setWatchlist(doc.data());
+        } else {
+          console.log("No Such Document !");
+        }
+      })
+      .catch(function (err) {
+        console.log("Error getting document", err);
+      });
 
     fetchData();
     fetchVideoData();
@@ -70,6 +86,9 @@ const SingleMoviePage = () => {
       return <p>Flop</p>;
     }
   };
+  //Checking if our movie already exits in the watchlist
+  const checkTitle = (obj) => obj.title === singleMovie.title;
+  const isInWatchlist = watchlist.movieList?.some(checkTitle);
 
   return (
     <>
@@ -120,29 +139,28 @@ const SingleMoviePage = () => {
                 }}
               />
             </div> */}
-                <div
-                  className="add-to-watchlist"
-                  onClick={() => addToWatchlist(singleMovie)}
-                >
-                  <h3>Add To WatchList</h3>
-                  <AddCircleOutline />
-                </div>
+                {isInWatchlist || click ? (
+                  <div
+                    className="add-to-watchlist"
+                    style={{ curson: "auto" }}
+                    // onClick={() => addToWatchlist(singleMovie)}
+                  >
+                    <h3>Added To WatchList</h3>
+                    <DoneOutlineIcon />
+                  </div>
+                ) : (
+                  <div
+                    className="add-to-watchlist"
+                    onClick={() => addToWatchlist(singleMovie)}
+                  >
+                    <h3>Add To WatchList</h3>
+                    <AddCircleOutline />
+                  </div>
+                )}
+
                 <div className="singleMovie-performance">
                   <h3>Box-Office Verdict : </h3>
                   {verdictCalculator(singleMovie?.revenue, singleMovie?.budget)}
-                  {/* {click ? (
-                    <ul className="performance-criteria">
-                      <li>{`Blockbuster: revenue > 4 times budget`}</li>
-                      <li>{`Super Hit: revenue > 2 times budget`}</li>
-                      <li>{`Hit: revenue > budget`}</li>
-                      <li>{`Flop: revenue < budget`}</li>
-                      <ArrowDropUpIcon
-                        onClick={() => setClick(!click)}
-                      ></ArrowDropUpIcon>
-                    </ul>
-                  ) : (
-                    <div onClick={() => setClick(!click)}>verdict criteria</div>
-                  )} */}
                   <ul className="performance-criteria">
                     <li>{`Blockbuster: revenue > 4 times budget`}</li>
                     <li>{`Super Hit: revenue > 2 times budget`}</li>

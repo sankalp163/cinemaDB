@@ -6,7 +6,12 @@ const Banner = () => {
   const [movie, setMovie] = useState([]);
 
   // Typewriting effect JS
-  const words = ["MOVIE SUMMARIES", "MOVIE RATINGS", "MOVIE TRAILERS"];
+  const words = [
+    "MOVIE SUMMARIES",
+    "CREATING WATCHLISTS",
+    "MOVIE RATINGS",
+    "MOVIE TRAILERS",
+  ];
   let count = 0;
   let index = 0;
   let currentWord = "";
@@ -31,7 +36,7 @@ const Banner = () => {
       index = 0;
     }
 
-    setTimeout(type, 200);
+    setTimeout(type, 300);
   }
 
   useEffect(() => {
