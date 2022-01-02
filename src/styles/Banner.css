@@ -8,28 +8,42 @@
   background-image: linear-gradient(
     270deg,
     transparent,
-    rgba(37, 37, 37, 0.4) 20%,
+    rgba(37, 37, 37, 0.4) 30%,
     #111
   );
 }
 
 .banner_contents {
-  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding-top: 150px;
-  height: 425px;
+  height: 60vh;
+  /* filter: brightness(90%); */
+  text-shadow: 2px 2px 5px #111;
 }
 .banner_title {
-  font-size: 3.2rem;
+  display: flex;
+  font-size: 2rem;
   font-weight: 800;
   padding-bottom: 0.3rem;
+}
+.banner_title img {
+  opacity: 0.9;
+  margin-left: 15px;
+  height: 10vh;
+  box-shadow: 4px 4px 5px #111;
 }
 .banner_description {
   display: flex;
   flex-direction: column;
-  width: 30rem;
+  align-items: center;
+  width: 40rem;
   line-height: 1.3;
   padding: 1rem;
   font-size: 1.5rem;
+  
   position: relative;
   /* max-width: 360px; */
   height: auto;
@@ -49,9 +63,11 @@
 }
 
 .typing {
+  text-shadow: 2px 2px 5px #111;
   position: relative;
-  color: rgb(224, 5, 5);
+  color: rgb(255, 11, 11);
   font-weight: 700;
+  font-size: 2rem;
 }
 
 .typing::after {
@@ -72,50 +88,6 @@
   }
 }
 
-/* .dynamic-texts {
-  font-size: 1.5rem;
-  line-height: 40px;
-  height: 40px;
-  margin-left: 0px;
-  overflow: hidden;
-}
-.dynamic-texts li {
-  list-style: none;
-  color: rgb(214, 4, 4);
-  font-weight: 400;
-  position: relative;
-  top: 0;
-  animation: slide 6s steps(3) infinite;
-}
-
-@keyframes slide {
-  100% {
-    top: -120px;
-  }
-}
-
-.dynamic-texts li span {
-  position: relative;
-}
-
-.dynamic-texts li span::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background: black;
-  border-left: 2px solid rgb(214, 4, 4);
-  animation: typing 2s steps(10) infinite;
-}
-
-@keyframes typing {
-  100% {
-    left: 100%;
-    margin: 0 -20px 0 20px;
-  }
-} */
-
 .banner_fadeBottom {
   height: 6.6rem;
   background-image: linear-gradient(
@@ -124,20 +96,4 @@
     rgba(37, 37, 37, 0.61),
     #111
   );
-}
-.banner_button {
-  cursor: pointer;
-  color: #fff;
-  outline: none;
-  border: none;
-  font-weight: 700;
-  border-radius: 0.2vw;
-  padding: 0.5rem 2rem;
-  margin-right: 1rem;
-  background-color: rgba(51, 51, 51, 0.5);
-}
-.banner_button:hover {
-  color: #000;
-  background-color: #e6e6e6;
-  transition: all 0.4s;
 }

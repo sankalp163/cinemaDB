@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import logo from "../assets/logo.jpg";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
@@ -26,7 +27,7 @@ const Nav = () => {
         <img
           className="nav_logo"
           onClick={() => history.push("/")}
-          src="https://www.freepnglogos.com/uploads/netflix-logo-0.png"
+          src={logo}
           alt="logo"
         />
         <ul className={`nav_tabs ${show && "nav_tabs_disappear"}`}>

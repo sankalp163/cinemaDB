@@ -7,12 +7,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectUser } from "../features/userSlice";
 import Trailers from "../components/Trailers";
 import Nav from "../components/Nav";
-import Rating from "@mui/material/Rating";
 import AddCircleOutline from "@mui/icons-material/AddCircleOutline";
 import DoneOutlineIcon from "@mui/icons-material/DoneOutline";
 import MovieFilterIcon from "@mui/icons-material/MovieFilter";
-import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
-import { addToUserList } from "../features/userSlice";
 import Footer from "../components/Footer";
 
 const SingleMoviePage = () => {
@@ -52,7 +49,7 @@ const SingleMoviePage = () => {
       return videoRequest;
     }
 
-    //getting list of movies in watchlist to keep track if current
+    //getting list of movies in watchlist to keep track if current movie is in watchlist
     db.collection("users")
       .doc(user.uid)
       .get()

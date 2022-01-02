@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "../axios";
 import requests from "../Requests";
+import logo from "../assets/logo.jpg";
 
 const Banner = () => {
   const [movie, setMovie] = useState([]);
@@ -76,38 +77,14 @@ const Banner = () => {
       <div className="banner-dark-shade">
         <div className="banner_contents">
           <div>Welcome to</div>
-          <h1 className="banner_title">
-            {/* {movie?.title || movie?.name || movie?.original_name} */}
-            The CinemaDB
-          </h1>
-          {/* <div className="banner_buttons">
-            <button
-              className="banner_button"
-              onClick={() => goToMoviePage(movie.id)}
-            >
-              Movie Info
-            </button>
-            <button className="banner_button">My List</button>
-          </div> */}
+          <div className="banner_title">
+            <h1>The CinemaDB</h1>
+            <img src={logo} />
+          </div>
+
           <div className="banner_description">
             <div>A Cinephile's one-stop destination for</div>
             <div className="typing" id="typing"></div>
-            {/* <div className="banner_info">
-              <span>{movie?.title || movie?.name || movie?.original_name}</span>
-              {movie?.overview}
-            </div> */}
-            {/* <ul className="dynamic-texts">
-              <li>
-                <span>MOVIE SUMMARIES</span>
-              </li>
-              <li>
-                <span>MOVIE RATINGS</span>
-              </li>
-              <li>
-                <span>MOVIE TRAILERS</span>
-              </li>
-            </ul>
-            {truncate(movie?.overview, 150)} */}
           </div>
         </div>
         <div className="banner_fadeBottom" />
