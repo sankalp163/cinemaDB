@@ -58,7 +58,6 @@ const SingleMoviePage = () => {
       .get()
       .then(function (doc) {
         if (doc.exists) {
-          console.log(doc.data());
           setWatchlist(doc.data());
         } else {
           console.log("No Such Document !");
@@ -86,8 +85,9 @@ const SingleMoviePage = () => {
       return <p>Flop</p>;
     }
   };
+
   //Checking if our movie already exits in the watchlist
-  const checkTitle = (obj) => obj.title === singleMovie.title;
+  const checkTitle = (obj) => obj?.title === singleMovie?.title;
   const isInWatchlist = watchlist.movieList?.some(checkTitle);
 
   return (
