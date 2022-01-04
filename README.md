@@ -1,5 +1,32 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
+<p>
+<img  alt="HTML5" width="66px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/html/html.png" />
+<img  alt="CSS3" width="66x" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/css/css.png" />
+<img  alt="React" width="66px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png" />
+<img  alt="Redux" width="84px" src="https://upload.wikimedia.org/wikipedia/commons/4/49/Redux.png" />
+<img  alt="TMDB" width="66px" src="https://cdn-images-1.medium.com/max/1200/1*vIR7iO-1GnY2xYxL6NiYkw.png" />
+<img  alt="Firebase" width="66px" src="https://img.icons8.com/color/452/firebase.png" />
+</p>
+
+# Overview 
+A Netflix clone created using React, Redux and Firebase for Authentication and TMDB API for fetching movies, data. The UI replicates features of Netflix from the banner to the trademark row sliders. The trailer feature is still under development due to non-availability of reliable movie trailer source. A few extra features such as a a page containing movie summary, reviews, recommendations etc will be added soon.
+
+# Screenshots 
+<br><br>
+![screenshot-1](https://user-images.githubusercontent.com/56267419/128616587-95b1987a-a546-4e5f-8ad5-7dcafc88ee35.png)
+
+<br><br>
+![screenshot-3](https://user-images.githubusercontent.com/56267419/128616609-7b9fd5a6-1054-4217-9284-47906c3f14bc.png)
+
+<br><br>
+![screenshot-4](https://user-images.githubusercontent.com/56267419/128616615-a006dde6-234a-4bbb-b039-49d934b4a2ed.png)
+
+<br><br>
+![screenshot-2](https://user-images.githubusercontent.com/56267419/128616598-76f59e97-57c2-4196-be10-161aa5d69d65.png)
+
+
+<br><br>
 ## Available Scripts
 
 In the project directory, you can run:
