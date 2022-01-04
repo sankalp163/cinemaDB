@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import netflixLogo from "../assets/netflixLogo.png";
+import logo from '../assets/logo.jpg';
 import SignUpScreen from "./SignUpScreen";
 
 const LoginScreen = () => {
@@ -8,7 +8,7 @@ const LoginScreen = () => {
   return (
     <div className="loginScreen">
       <div className="loginScreen_background">
-        <img className="loginScreen_logo" src={netflixLogo} alt="logo" />
+        <img className="loginScreen_logo" src={logo} alt="logo" />
         <button className="loginScreen_button" onClick="">
           Sign In
         </button>

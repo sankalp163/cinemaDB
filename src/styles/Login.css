@@ -1,15 +1,16 @@
 .loginScreen {
   position: relative;
   height: 100%;
-  background: url("http://mppmduse2pmpovwapp.azurewebsites.net/wp-content/uploads/2019/09/netflix-background-9.jpg")
+  background: url("../assets/cinemaDB-background.jpg")
     center no-repeat;
   background-size: cover;
 }
 .loginScreen_logo {
   position: fixed;
   left: 0;
-  width: 150px;
+  width: 5vw;
   object-fit: contain;
+  margin-top: 10px;
   padding-left: 20px;
 }
 .loginScreen_button {

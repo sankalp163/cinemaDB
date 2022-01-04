@@ -25,21 +25,21 @@ const ProfileScreen = () => {
               <div className="plans">
                 <div className="plan">
                   <div className="plan-name">
-                    <h5>Netflix Standard</h5>
+                    <h5>Standard</h5>
                     <h6>1080p</h6>
                   </div>
                   <button className="plan-button">Subscribe</button>
                 </div>
                 <div className="plan">
                   <div className="plan-name">
-                    <h5>Netflix Basic</h5>
+                    <h5>Basic</h5>
                     <h6>480p</h6>
                   </div>
                   <button className="plan-button">Subscribe</button>
                 </div>
                 <div className="plan">
                   <div className="plan-name">
-                    <h5>Netflix Premium</h5>
+                    <h5>Premium</h5>
                     <h6>4K+ HDR</h6>
                   </div>
                   <button className="plan-button">Subscribe</button>
