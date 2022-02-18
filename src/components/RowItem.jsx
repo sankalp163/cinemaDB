@@ -5,11 +5,9 @@ import DoneOutlineIcon from "@mui/icons-material/DoneOutline";
 import db from "../firebase";
 import { selectUser } from "../features/userSlice";
 import { useSelector } from "react-redux";
-import AddIcon from "@material-ui/icons/Add";
 import truncate from "../components/utility";
 
 const RowItem = ({ movie, isLargeRow = false, index }) => {
-  const [moreClicked, setMoreClicked] = useState(false);
   const base_url = "https://image.tmdb.org/t/p/original/";
   const user = useSelector(selectUser);
   const [watchlist, setWatchlist] = useState([]);

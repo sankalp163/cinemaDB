@@ -1,9 +1,6 @@
-import React, { useState } from "react";
-import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
-import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
+import React from "react";
 
 const Trailers = ({ videos }) => {
-  const videoBaseUrl = "https://www.youtube.com/watch?v=";
 
   return (
     <div className="trailers">

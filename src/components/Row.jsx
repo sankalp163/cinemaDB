@@ -1,13 +1,7 @@
 import axios from "../axios";
-import { Link } from "react-router-dom";
 import React, { useEffect, useState, useRef } from "react";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
-import ThumbDownAltIcon from "@material-ui/icons/ThumbDownAlt";
-import PlayArrowIcon from "@material-ui/icons/PlayArrow";
-import AddIcon from "@material-ui/icons/Add";
 import RowItem from "./RowItem";
 
 const Row = ({ title, fetchUrl, isLargeRow = false, id }) => {

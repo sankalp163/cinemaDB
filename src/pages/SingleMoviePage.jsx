@@ -20,9 +20,9 @@ const SingleMoviePage = () => {
   const [click, setClick] = useState(false);
   const [watchlist, setWatchlist] = useState([]);
 
-  const fetchUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=0a483415feaf1eb0f9d53ff65ec5732c&language=en-US`;
+  const fetchUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;
   const base_url = "https://image.tmdb.org/t/p/original/";
-  const videoUrl = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=0a483415feaf1eb0f9d53ff65ec5732c&language=en-US`;
+  const videoUrl = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`;
 
   // Setting background image of our singleMovie page
   const backgroundImageUrl = `https://image.tmdb.org/t/p/original${singleMovie?.backdrop_path}`;
