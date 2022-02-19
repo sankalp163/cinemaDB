@@ -10,20 +10,25 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 </p>
 
 # Overview 
-A Netflix clone created using React, Redux and Firebase for Authentication and TMDB API for fetching movies, data. The UI replicates features of Netflix from the banner to the trademark row sliders. The trailer feature is still under development due to non-availability of reliable movie trailer source. A few extra features such as a a page containing movie summary, reviews, recommendations etc will be added soon.
+A Movie Database Application created using React, Redux, Firebase for Authentication, Firestore for Database and TMDB API for fetching movies. You can see movie ratings, their summaries and their box office verdict as well. Moreover movie trailers are available too. You can create your own watchlist of all the movies you like and update it as and when the need arises. It takes an inspiration from Netflix UI from the red-black theme to the trademark row sliders.
 
 # Screenshots 
 <br><br>
-![screenshot-1](https://user-images.githubusercontent.com/56267419/128616587-95b1987a-a546-4e5f-8ad5-7dcafc88ee35.png)
+![cinemaDB-login](https://user-images.githubusercontent.com/56267419/148080207-dae67203-1196-44ae-b07f-196203e4c422.png)
+
+
 
 <br><br>
-![screenshot-3](https://user-images.githubusercontent.com/56267419/128616609-7b9fd5a6-1054-4217-9284-47906c3f14bc.png)
+![cinemaDB homescreen](https://user-images.githubusercontent.com/56267419/148079933-0b4841a8-57ae-4ca3-b8c1-fef4a3a24044.png)
+
 
 <br><br>
-![screenshot-4](https://user-images.githubusercontent.com/56267419/128616615-a006dde6-234a-4bbb-b039-49d934b4a2ed.png)
+![cinemaDB singleMovie](https://user-images.githubusercontent.com/56267419/148079950-280173cf-514e-4a8e-aa80-1aed6ace2fca.png)
+
 
 <br><br>
-![screenshot-2](https://user-images.githubusercontent.com/56267419/128616598-76f59e97-57c2-4196-be10-161aa5d69d65.png)
+![cinemaDB watchlist screen](https://user-images.githubusercontent.com/56267419/148079981-da8792d3-30bd-498b-9cb7-052993bf1503.png)
+
 
 
 <br><br>
